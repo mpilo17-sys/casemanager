@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container text-center">
+    <h3 class="royal-blue mb-4">Case Management Dashboard</h3>
+    
+    <!-- Display user info only if available -->
+    {% if user %}
+    <div class="alert alert-primary">
+        Logged in as: <strong>{{ user.get('name', 'Unknown Officer') }}</strong><br>
+        Station: <strong>{{ user.get('station', 'Unassigned') }}</strong>
+    </div>
+    {% endif %}
+
+    <div class="d-grid gap-3">
+        <a href="{{ url_for('statement') }}" class="btn btn-primary btn-lg">
+            🗂️ Open New Case
+        </a>
+        <a href="#" class="btn btn-secondary btn-lg">
+            🔍 View Existing Cases
+        </a>
+    </div>
+</div>
+{% endblock %}

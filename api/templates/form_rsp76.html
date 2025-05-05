@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h3 class="text-center royal-blue mb-4">RSP 76 - Case Docket Form</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.police_region.label(class="form-label royal-blue") }}
+                    {{ form.police_region(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.rcci_no.label(class="form-label royal-blue") }}
+                    {{ form.rcci_no(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.registration_traffic_offence.label(class="form-label royal-blue") }}
+                    {{ form.registration_traffic_offence(class="form-control") }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.station.label(class="form-label royal-blue") }}
+                    {{ form.station(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.ob_no.label(class="form-label royal-blue") }}
+                    {{ form.ob_no(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.court_case_no.label(class="form-label royal-blue") }}
+                    {{ form.court_case_no(class="form-control") }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-navigation">
+            <div class="float-end">
+                {{ form.submit_next(class="btn btn-primary") }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

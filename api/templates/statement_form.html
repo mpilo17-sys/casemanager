@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h3 class="text-center royal-blue mb-4">RSP 79 Statement Form</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    {{ form.station.label(class="form-label") }}
+                    {{ form.station(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.full_name.label(class="form-label") }}
+                    {{ form.full_name(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.age.label(class="form-label") }}
+                    {{ form.age(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.address.label(class="form-label") }}
+                    {{ form.address(class="form-control", rows=3) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    {{ form.rcci_ef_no.label(class="form-label") }}
+                    {{ form.rcci_ef_no(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.occupation.label(class="form-label") }}
+                    {{ form.occupation(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.nationality.label(class="form-label") }}
+                    {{ form.nationality(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.date.label(class="form-label") }}
+                    {{ form.date(class="form-control") }}
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            {{ form.statement.label(class="form-label") }}
+            {{ form.statement(class="form-control", rows=5) }}
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

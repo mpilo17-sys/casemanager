@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Police System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #002366;
+            --white: #ffffff;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: var(--royal-blue) !important;
+        }
+        .btn-primary {
+            background-color: var(--royal-blue);
+            border-color: var(--royal-blue);
+        }
+        .form-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 35, 102, 0.1);
+            margin-top: 2rem;
+        }
+        .royal-blue {
+            color: var(--royal-blue);
+        }
+        .form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #002366;
+}
+
+.btn-primary {
+    background-color: #002366;
+    border-color: #002366;
+}
+
+.btn-primary:hover {
+    background-color: #001a4d;
+    border-color: #001a4d;
+}
+
+.royal-blue {
+    color: #002366;
+    font-weight: 600;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Royal Police System</a>
+            <div class="navbar-text text-white">
+                {% if current_user.is_authenticated %}
+                    Logged in as: {{ user.name }} | 
+                    Station: {{ user.station }} | 
+                    Rank: {{ user.rank }}
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} mt-3">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

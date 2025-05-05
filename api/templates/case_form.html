@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h3 class="mb-4 text-center" style="color: var(--royal-blue);">RSP 76 Case Form</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Police Region</label>
+                {{ form.police_region(class="form-control") }}
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Station</label>
+                {{ form.station(class="form-control") }}
+            </div>
+        </div>
+
+        <!-- Add all other form fields here following the same pattern -->
+
+        <div class="d-flex justify-content-between mt-4">
+            <button type="button" class="btn btn-secondary">Previous</button>
+            <div>
+                <button type="submit" class="btn btn-primary">Next</button>
+                {{ form.submit(class="btn btn-success") }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

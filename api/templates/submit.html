@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h3 class="text-center royal-blue mb-4">Case Submitted Successfully</h3>
+    <div class="alert alert-success">
+        <h4>Case Summary:</h4>
+        {% for form, data in case_data.items() %}
+        <div class="mb-3">
+            <h5>{{ form }}</h5>
+            <pre>{{ data|tojson(indent=2) }}</pre>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-primary">
+        Return to Dashboard
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h3 class="text-center royal-blue mb-4">RSP 79 - Statement Form</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.statement_full_name.label(class="form-label royal-blue") }}
+                    {{ form.statement_full_name(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.occupation.label(class="form-label royal-blue") }}
+                    {{ form.occupation(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.residential_address.label(class="form-label royal-blue") }}
+                    {{ form.residential_address(class="form-control", rows=3) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.age.label(class="form-label royal-blue") }}
+                    {{ form.age(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.nationality.label(class="form-label royal-blue") }}
+                    {{ form.nationality(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.region.label(class="form-label royal-blue") }}
+                    {{ form.region(class="form-control") }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-navigation mt-4">
+            <button type="submit" name="submit_prev" class="btn btn-secondary">
+                ← Previous
+            </button>
+            <div class="float-end">
+                {{ form.submit_next(class="btn btn-primary") }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
